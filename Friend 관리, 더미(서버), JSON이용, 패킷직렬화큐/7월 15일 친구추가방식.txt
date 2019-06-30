@@ -1,0 +1,111 @@
+친구 시스템 종류
+
+
+팔로워방식(트위터)
+신청즉시 팔로워가 됨
+상대방의 정보를 볼 분 쌍방향 컨텐츠는 거의 없음
+
+친구방식(페이스북)
+친구요청>수락 or 거부
+요청과 수락이라는 과정이 있으며
+친구관게에서는 서로 컨텐츠를 공유하며 플레이
+
+
+초대시스템
+카카오톡처럼 특정 플렛폼에 붙을 경우
+해당 플렛폼의 다른 유저들을 해당 게임으로 초대함
+단순히 메시지를 보내는 초대라면 아주 간단하지만
+일정시간 내에 초대 횟수 제한, 그리고 초대에대한 보상처리가 거의 들어감
+
+-----------------------------------------------------------------------
+
+개발 조건
+1.메시지 생성 . 무조건 직렬화버퍼를 사용
+
+
+2.수신 처리부 메시지 (패킷)하나당 하나의 처리함수 만들기
+
+3.송신 처리부
+
+
+Packet << Type;
+Packet << ptr->AccountNo;
+Packet << ptr->ID;
+
+
+#define Friend_Login_CS 1//로그인
+#define Friend_Login_CSQ 2//로그인 받기
+#define Friend_Recom_CS 3 //추천 친구
+#define FriendList_CS 4 //- 친구목록
+#define FriendList_Request_CS 5//- 친구목록_요청보낸거
+#define FriendList_Reply_CS 6//- 친구목록_요청받은거
+#define FriendRemove_CS 7//- 친구관계 끊기
+#define FriendRequest_CS 8//- 친구 요청하기
+#define FriendCancel_CS 9// - 친구 요청 보낸거 취소
+#define FriendDeny_CS 10 //- 친구 요청 거부
+#define FriendAgree_CS 11//- 친구 요청 수락
+
+
+
+	printf("0. 추천 친구 목록  \n");     o
+	printf("1. 친구 목록 \n");           o
+	printf("2. 친구 요청 목록\n");       o
+	printf("3. 친구 요청 받기 \n");      o
+	printf("4. 친구 관계 끊기\n");     ->예외사항
+	printf("5. 친구 요청 하기 \n");
+	printf("6. 친구 관계 끊기\n");
+	printf("7. 친구 요청 거부 \n");
+	printf("8. 친구 요청 수락 \n");
+
+
+
+
+Friend_Recomlist
+	Friend_list,
+	Friend_listRequest
+	Friend_Reply,
+	FriendRemove,
+	FriendRequest,
+	FriendCancel,
+	FriendDeny,
+	FriendAgree,
+
+
+
+SendProc(Friend_Recom_CS);
+		break;
+	case Friend_list:
+		SendProc(FriendList_CS);
+		break;
+	case Friend_listRequest:
+		SendProc(FriendList_Request_CS);
+		break;
+	case Friend_Reply:
+		SendProc(FriendList_Reply_CS);
+		break;
+	case FriendRemove:
+		SendProc(FriendRemove_CS);
+		break;
+	case FriendRequest:
+		SendProc(FriendRequest_CS);
+		break;
+	case FriendCancel:
+		SendProc(FriendCancel_CS);
+		break;
+	case FriendDeny:
+		SendProc(FriendDeny_CS);
+		break;
+	case FriendAgree:
+		SendProc(FriendAgree_CS);
+		break;
+
+
+
+FriendList_CS
+
+타입
+
+아이디 바로 -> 아이디 찾아서 번호 적립
+
+Form ->자기 aptr
+to ->상대방 
