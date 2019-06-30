@@ -1,0 +1,324 @@
+#include "stdafx.h"
+#include "SQue.h"
+
+
+SQue::SQue(int size) : m_write(0), m_read(0)
+{
+	InitializeCriticalSection(&m_cs);
+
+	m_buffer = new char[size];
+	m_Totalsize = size;
+
+	memset(m_buffer, NULL, m_Totalsize);
+
+}
+
+
+
+SQue::~SQue()
+{
+	DeleteCriticalSection(&m_cs);
+
+	memset(m_buffer, NULL, m_Totalsize);
+	//파괴자 : 동적할당 해제
+	delete[]m_buffer;
+}
+
+void SQue::Lock()
+{
+	EnterCriticalSection(&m_cs);
+}
+
+
+
+void SQue::UnLock()
+{
+	LeaveCriticalSection(&m_cs);
+}
+
+
+int SQue::Put(char* pData, int iSize)
+{
+
+	//Lock();
+
+	//사이즈 저장 // 왜? : Put,Get, Peek한 사이즈와 넣은 사이즈가 같으면 0이되는 걸 확인하려고
+	int sizen = iSize;
+
+	int iReturntemp = 0; //리턴할 변수를 하나 둔다. 
+
+	int putemtpysize = (m_Totalsize + m_read - EMPTYSIZE - m_write) % m_Totalsize;
+	//1. 빈공간이 넣을 사이즈보다 작은 경우
+
+	//들어온 사이즈가 0이거나 남은 사이즈가 0일때 
+	if ((sizen <= 0) || (putemtpysize == 0))
+	{
+		//UnLock();
+		return 0;
+	}
+	//넣은 사이즈 구해서 넣기
+
+	int psize = Putsize(sizen);
+
+	int leftsize = m_Totalsize - m_write;
+
+	if (psize  > leftsize)
+	{
+		memcpy(m_buffer + m_write, pData, leftsize);
+		memcpy(m_buffer, pData + leftsize, psize - leftsize);
+		m_write = (psize - leftsize) % m_Totalsize;
+	}
+	//데이터를 사이즈 만큼 m_buffer에 넣음
+	else
+	{
+		memcpy(&m_buffer[m_write], pData, psize);
+		m_write = (m_write + psize) % m_Totalsize;
+	}
+	sizen = sizen - psize;
+
+
+	//Put한 사이즈와 넣은 사이즈가 같으면 sizen 0
+	//정상적이면 iSize 리턴
+	iReturntemp = iSize - sizen;
+
+	//UnLock();
+	return iReturntemp;
+}
+
+
+int SQue::Get(char* pData, int iSize)
+{
+
+	//Lock();
+	int sizen = iSize;
+	int iReturntemp = 0;
+	int Getenablesize = (m_Totalsize + m_write - m_read) % m_Totalsize;
+
+	//넣을 사이즈가 0이거나 남은 사이즈가 0일때 
+	if ((sizen <= 0) || (Getenablesize == 0))
+	{
+		//UnLock();
+		return 0;
+	}
+	//넣은 사이즈 구해서 넣기
+
+	int gsize = GetPeeksize(sizen);
+
+	int LSize = m_Totalsize - m_read; //총사용용량에서 빼는 양을 뺀다.
+	//넘어갔을떄
+	if (gsize > LSize)
+	{
+		memcpy(pData, m_buffer + m_read, LSize);
+		memcpy(pData + LSize, m_buffer, gsize - LSize);
+		m_read = (gsize - LSize) % m_Totalsize;
+	}
+	//데이터를 사이즈 만큼 pData에 넣음
+	else
+	{
+		memcpy(pData, &m_buffer[m_read], gsize);
+		//read를 구함
+		m_read = (m_read + gsize) % m_Totalsize;
+	}
+	//Get한 사이즈와 넣은 사이즈가 같으면 0
+	sizen = sizen - gsize;
+
+	//Get한 사이즈와 넣은 사이즈가 같으면 sizen 0
+	//정상적이면 iSize 리턴
+	iReturntemp = iSize - sizen;
+
+
+	//UnLock();
+	return iReturntemp;
+}
+
+
+//CAysStreamDQ
+//FlipBuffer쪽에서 버퍼가 비어져있는지 확인한다.
+int SQue::Peek(char* pData, int iSize)
+{
+
+	//Lock();
+
+	int iReturntemp = 0;
+	int sizen = iSize;
+
+	int peekemsize = (m_Totalsize + m_write - m_read) % m_Totalsize;
+
+	//넣을 사이즈가 0이거나 남은 사이즈가 0일때 
+	if ((sizen == 0) || (peekemsize == 0))
+	{
+
+		//UnLock();
+		return 0;
+	}
+	//넣은 사이즈 구해서 넣기
+	int iPeeksize = GetPeeksize(sizen);
+	//데이터를 사이즈 만큼 pData에 넣음
+
+	//넘어갔을떄
+	int LSize = m_Totalsize - m_read; //총사용용량에서 빼는 양을 뺀다.
+	//넘어갔을떄
+	if (iPeeksize > LSize)
+	{
+		memcpy(pData, m_buffer + m_read, LSize);
+		memcpy(pData + LSize, m_buffer, iPeeksize - LSize);
+	}
+
+	else
+	{
+		memcpy(pData, &m_buffer[m_read], iPeeksize);
+		//Peek한 사이즈와 넣은 사이즈가 같으면 0
+	}
+	sizen = sizen - iPeeksize;
+
+	//Peek한 사이즈와 넣은 사이즈가 같으면 sizen 0
+	//정상적이면 iSize 리턴
+	iReturntemp = iSize - sizen;
+
+	//UnLock();
+	return iReturntemp;
+}
+
+
+
+
+void SQue::Remove(int iSize)
+{
+	//리드만큼 이동
+	int emptySize = min(iSize, (m_Totalsize + m_write - m_read) % m_Totalsize);
+
+	m_read = ((m_read + emptySize) % m_Totalsize);
+	//80 60 40 20  0 반복
+}
+
+
+void SQue::Removew(int iSize)
+{
+	m_write = ((m_write - iSize) % m_Totalsize);
+	//80 60 40 20  0 반복
+}
+
+
+
+void SQue::SRemove(int iSize)
+{
+	m_read = (m_read + iSize) % m_Totalsize;
+}
+
+
+
+int SQue::Putsize(int iSize)
+{
+	int putemtpysize = (m_Totalsize + m_read - EMPTYSIZE - m_write) % m_Totalsize;
+
+	int iPutsize = min(iSize, putemtpysize);
+
+	return iPutsize;
+}
+
+
+
+int SQue::GetPeeksize(int iSize)
+{
+	int Getpeekemtpysize = (m_Totalsize + m_write - m_read) % m_Totalsize;
+
+	int iGetPeeksize = min(iSize, Getpeekemtpysize);
+
+	return iGetPeeksize;
+}
+
+
+void SQue::Remove()
+{
+	m_read = 0;
+	m_write = 0;
+	//memset(m_buffer, NULL, m_Totalsize);
+}
+
+
+int SQue::NotBrokenGetSize()
+{
+	return (m_Totalsize - m_write - EMPTYSIZE + m_read) % m_Totalsize;
+
+}
+
+
+int SQue::SendNotBrokenGetSize()
+{
+	if (m_read <= m_write)
+	{
+		return m_write - m_read;
+	}
+
+	else
+	{
+		return m_Totalsize - m_read;
+
+	}
+
+}
+
+
+int SQue::NNotBrokenGetSize()
+{
+	if (m_read <= m_write)
+	{
+		return m_write - m_read;
+	}
+
+	else
+	{
+		return (m_Totalsize - m_write - EMPTYSIZE + m_read) % m_Totalsize;
+
+	}
+
+}
+
+
+
+int SQue::GetUseSize()
+{
+	int GetGetsize = (m_Totalsize + m_write - m_read) % m_Totalsize;
+
+	return GetGetsize;
+}
+
+
+int SQue::PutPutsize()
+{
+	return m_write - m_read;
+}
+
+char* SQue::GetBuff()
+{
+	//보낸 사이즈 만큼 가져와야한다.
+	return m_buffer;
+	//return m_buffer;
+}
+
+
+
+char* SQue::GetReadBuff()
+{
+	//if (m_read >= m_Totalsize - df_SIZE)
+	//{
+	//	m_read = 0;
+	//}
+	//읽은 후 뒤에 부터 
+	return m_buffer + m_read;
+}
+
+
+char* SQue::GetWBuff()
+{
+
+	return m_buffer + m_write;
+}
+
+
+void SQue::deletesize(int iSize)
+{
+
+	m_read = m_read - iSize;
+
+}
