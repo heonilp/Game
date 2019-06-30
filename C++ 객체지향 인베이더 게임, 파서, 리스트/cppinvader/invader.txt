@@ -1,0 +1,63 @@
+//스테이지 1
+
+STAGE1
+{
+
+  PLAYER
+  {
+
+//플레이어의 좌표 체력을 등록 하세요
+
+     HP = 10
+     X = 35
+     Y = 20
+
+  }
+
+
+
+//몬스터의 가로 줄의 몬스터 개수 - 2 빼주세요
+
+  MONSTER
+  {
+     MONSTERLOW1 = 8
+     MONSTERLOW2 = 8
+     MONSTERLOW3 = 8	
+
+//몬스터의 단계 별로체력을 등록 하세요
+
+     LEV1 = 1
+     LEV2 = 1
+     LEV3 = 2
+     LEV4 = 3
+
+  }
+}
+
+
+//스테이지 2
+
+STAGE2
+{
+
+ MONSTER
+ {
+
+//몬스터의 가로 줄의 몬스터 개수 - 3 빼주세요
+
+   MONSTERLOW1 = 10
+   MONSTERLOW2 = 10
+   MONSTERLOW3 = 10		
+
+//몬스터의 단계 별로체력을 등록 하세요
+
+
+   LEV1 = 1
+   LEV2 = 2
+   LEV3 = 3
+   LEV4 = 4
+
+  }
+}
+
+
