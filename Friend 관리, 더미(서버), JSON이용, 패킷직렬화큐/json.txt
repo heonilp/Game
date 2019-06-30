@@ -1,0 +1,118 @@
+json.org/
+
+JSON ->Key,value ->패킷을 파싱해서 써야하기 때문에 느림
+
+자바스크립트 오브젝트 노테이션
+
+{ } ->객체, 여러개 , 길이제한 없음
+ 
+스트링
+"Key" : 데이터,
+글자 ->그대로 , 문자 " "
+
+데이터와 데이터 구분은 ,
+
+[] -> 배열
+
+해당
+
+패킷에 대한 상위호환성이 있음
+
+특정함수에 던지면 객체로 변함
+
+친구 찾기 JSON포맷
+{
+   "Account":
+	[         
+	    {AccountNo":1, "Nickname":"이름1"},
+	    {AccountNo":2, "Nickname":"이름2"},
+	    {AccountNo":3, "Nickname":"이름3"},
+	    {AccountNo":4, "Nickname":"이름4"},
+	],	
+   "Friend": [],
+
+
+   "FriendRequest"
+	[
+            {
+
+
+            }
+	]
+
+}
+
+
+
+[[[[[[쓰는법]]]]]]
+
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
+#include <iostream>
+
+using namespace rapidjson;
+
+
+
+StringBuffer s;
+Writer<StringBuffer> writer(s);
+
+writer.StartObject();
+writer.String();
+
+
+writer.StartArray();
+writer.EndArray();
+
+writer.objetEnd();
+
+//------------------------------------------
+우리가 할것
+
+
+Writer<StringBuffer,UTF16<>> writer(StringJSON);
+
+writer.StartObject();
+writer.String(L"Account");
+
+writer.StartArray();
+
+리스트 돌기
+for()
+{
+ptr=*itor;
+
+writer.StartObject();
+writer.String(L"AccountNo");
+writer.Uint64(ptr->No);
+
+writer.String(L"NickName");
+writer.String(ptr->ID);
+writer.EndObject();
+
+}
+writer.EndArray();
+
+FILE *pFile;
+
+텍스트 저장
+_wfopen_s(&pFile,L"Db.txt",L"wb");
+const char* pJson=StringJSON.GetString();
+
+fprintf(pFile,pJson);
+fclose(pFile);
+
+
+int Re = MultiByteToWideChar(CP_UTF8,0,szText,길이,szbuff,버퍼길이);  ->리턴값 변환된 길이갯수
+
+if(Re<길이)
+{
+szbuf[iRe]=L'\0';
+
+}
+
+
+WideChartoMultiByte
+
+
