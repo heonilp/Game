@@ -133,7 +133,7 @@ FriendAgree  - 친구 요청 수락
 3. 채팅 서버와 게임 서버 구현
 
 <div>
-<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/3.png"></img>
+<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/3.png" width="70%"></img>
 </div>
 
 4. 상속 및 코딩스타일
@@ -155,5 +155,6 @@ FriendAgree  - 친구 요청 수락
 
  1. C++ 윈도우 API 이용
  2. 큐 이용
- 3. 서버 모니터링을 하기 위한 그래프 작업
- 4. 일정 수준이 넘으면 소리나게 함
+ 3. 서버 모니터링을 하기 위한 그래프 작업(CPU, 이용자수, 패킷전송률 OUT/IN)
+ 4. 일정 수준이 넘으면 화면이 빨간색으로 변경되고 소리나게 함
+ 5. 요즘은 InfluxDB로 바꿔서 웹 그래프로 변경
