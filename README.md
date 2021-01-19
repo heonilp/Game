@@ -1,6 +1,6 @@
 # Game 및 관련 프로젝트
 
-## 객체 지향 인베이더 콘솔 게임
+## 1. 객체 지향 인베이더 콘솔 게임
 
 <div>
 <img src="https://github.com/heonilp/Game/blob/master/C%2B%2B%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%9D%B8%EB%B2%A0%EC%9D%B4%EB%8D%94%20%EA%B2%8C%EC%9E%84%2C%20%ED%8C%8C%EC%84%9C%2C%20%EB%A6%AC%EC%8A%A4%ED%8A%B8/%EC%9D%B8%EB%B2%A0%EC%9D%B4%EB%8D%94%20%EA%B2%B0%EA%B3%BC%20%ED%99%94%EB%A9%B4.png" width="70%"></img>
@@ -30,7 +30,7 @@ F1 : 게임 시작
 지면 다시 시작하는 것도 있습니다.
 ```
 
-## JSON 을 이용한 친구 관리 시스템 및 채팅 욕 DB 거르기
+## 2. JSON 을 이용한 친구 관리 시스템 및 채팅 욕 DB 거르기
 
 <div>
 <img src="https://github.com/heonilp/Game/blob/master/Friend%20%EA%B4%80%EB%A6%AC%2C%20%EB%8D%94%EB%AF%B8(%EC%84%9C%EB%B2%84)%2C%20JSON%EC%9D%B4%EC%9A%A9%2C%20%ED%8C%A8%ED%82%B7%EC%A7%81%EB%A0%AC%ED%99%94%ED%81%90/%EC%B9%9C%EA%B5%AC%20%EA%B4%80%EB%A6%AC%20%EA%B2%B0%EA%B3%BC%ED%99%94%EB%A9%B4.png" width="70%"></img>
@@ -92,7 +92,7 @@ FriendAgree  - 친구 요청 수락
 3. 송신 처리부
 
 
-## 2D게임 - TCP 파이터 서버와 클라이언트 
+## 3. 2D게임 - TCP 파이터 서버와 클라이언트 
 
 - 용량이 커서 아직 올리지 못했습니다.
 - [유튜브 데모 동영상](https://www.youtube.com/watch?v=hFowcbm8Xwo&feature=youtu.be)
@@ -112,7 +112,7 @@ FriendAgree  - 친구 요청 수락
 - 객체 클래스화
 
 
-## 보석 파이터 게임
+## 4. 보석 파이터 게임 서버 개발
 
 - 용량이 커서 아직 올리지 못했습니다.
 - [유튜브 데모 동영상](https://www.youtube.com/watch?v=13Un1BnTYoY&feature=youtu.be)
@@ -133,17 +133,18 @@ FriendAgree  - 친구 요청 수락
 3. 채팅 서버와 게임 서버 구현
 
 <div>
-<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/3.png" width="100%"></img>
+<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/3.png"></img>
 </div>
 
-- 상속 및 코딩스타일
+4. 상속 및 코딩스타일
+
 <div>
 <img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/4.png" width="70%"></img>
 </div>
 
 - 서버 : C/C++, IOCP, MySQL, List, 직렬화큐 등, 클라이언트 : 유니티 C# (게임코디 제공)
 
-## 서버 모니터링 뷰어차트
+## 5. 서버 모니터링 뷰어차트(초안)
 
 - 서버 모니터링 뷰어차트 ([링크](https://github.com/heonilp/Game/tree/master/Win32%20API%20%EC%84%9C%EB%B2%84%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EB%B7%B0%EC%96%B4%EC%B0%A8%ED%8A%B8))
  
