@@ -6,7 +6,7 @@
 <img src="https://github.com/heonilp/Game/blob/master/C%2B%2B%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%9D%B8%EB%B2%A0%EC%9D%B4%EB%8D%94%20%EA%B2%8C%EC%9E%84%2C%20%ED%8C%8C%EC%84%9C%2C%20%EB%A6%AC%EC%8A%A4%ED%8A%B8/%EC%9D%B8%EB%B2%A0%EC%9D%B4%EB%8D%94%20%EA%B2%B0%EA%B3%BC%20%ED%99%94%EB%A9%B4.png" width="70%"></img>
 </div>
 
-- C++, 콘솔게임 
+- C++, 콘솔게임 (exe파일 다운 받으면 가능)
 - 파서 이용
 - [프로젝트 링크](https://github.com/heonilp/Game/tree/master/C%2B%2B%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%9D%B8%EB%B2%A0%EC%9D%B4%EB%8D%94%20%EA%B2%8C%EC%9E%84%2C%20%ED%8C%8C%EC%84%9C%2C%20%EB%A6%AC%EC%8A%A4%ED%8A%B8)
 
@@ -42,6 +42,11 @@ F1 : 게임 시작
 1. JSON 을 이용한 친구 관리 시스템 
  - 1.1 JSON 이용 , 모델 :Select 
  - 1.2 자료구조 STL 리스트을 이용한 친구 데이터 관리
+
+<div>
+<img src="https://github.com/heonilp/Game/blob/master/%EC%B1%84%ED%8C%85%20%EC%9A%95%20DB%20%EA%B1%B0%EB%A5%B4%EA%B8%B0%20%EC%97%90%EC%BD%94%20%EC%84%9C%EB%B2%84%2C%ED%81%B4%EB%9D%BC%20IOCP%2C%20%EC%8A%A4%ED%8A%B8%EB%A6%BC%20%ED%81%90%20%ED%8F%AC%ED%95%A8/%EA%B2%B0%EA%B3%BC2.png" width="70%"></img>
+</div>
+
 
 2. 채팅 욕 DB 거르기
   - 2.1 채팅 욕 DB 거르기 에코 서버
@@ -89,7 +94,12 @@ FriendAgree  - 친구 요청 수락
 
 ## 2D게임 - TCP 파이터 서버와 클라이언트 
 
+- 용량이 커서 아직 올리지 못했습니다.
 - [유튜브 데모 동영상](https://www.youtube.com/watch?v=hFowcbm8Xwo&feature=youtu.be)
+
+<div>
+<img src="https://github.com/heonilp/Game/blob/master/TCP%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EC%84%9C%EB%B2%84%20%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8/%EC%8B%A4%ED%96%89.png" width="70%"></img>
+</div>
 
 -  TCP 파이터 서버와 클라이언트의 특징 및 구현
 
@@ -104,9 +114,34 @@ FriendAgree  - 친구 요청 수락
 
 ## 보석 파이터 게임
 
-- 서버 : C++, IOCP , 클라이언트 : C#
+- 용량이 커서 아직 올리지 못했습니다.
 - [유튜브 데모 동영상](https://www.youtube.com/watch?v=13Un1BnTYoY&feature=youtu.be)
 
+1.  유니티 액션 게임 게임서버 , 채팅서버  IOCP 이용,DB
+
+<div>
+<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/1.png" width="70%"></img>
+</div>
+
+
+2.  MySQL DB 구조와 모니터링 클라이언트
+
+<div>
+<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/2.png" width="70%"></img>
+</div>
+
+3. 채팅 서버와 게임 서버 구현
+
+<div>
+<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/3.png" width="70%"></img>
+</div>
+
+- 상속 및 코딩스타일
+<div>
+<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/3.png" width="70%"></img>
+</div>
+
+- 서버 : C/C++, IOCP, MySQL, List, 직렬화큐 등, 클라이언트 : 유니티 C# (게임코디 제공)
 
 ## 서버 모니터링 뷰어차트
 
