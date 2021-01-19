@@ -36,7 +36,7 @@ F1 : 게임 시작
 <img src="https://github.com/heonilp/Game/blob/master/Friend%20%EA%B4%80%EB%A6%AC%2C%20%EB%8D%94%EB%AF%B8(%EC%84%9C%EB%B2%84)%2C%20JSON%EC%9D%B4%EC%9A%A9%2C%20%ED%8C%A8%ED%82%B7%EC%A7%81%EB%A0%AC%ED%99%94%ED%81%90/%EC%B9%9C%EA%B5%AC%20%EA%B4%80%EB%A6%AC%20%EA%B2%B0%EA%B3%BC%ED%99%94%EB%A9%B4.png" width="70%"></img>
 </div>
 
-- 언어: C++
+- 언어: C++ ([링크](https://github.com/heonilp/Game/tree/master/Friend%20%EA%B4%80%EB%A6%AC%2C%20%EB%8D%94%EB%AF%B8(%EC%84%9C%EB%B2%84)%2C%20JSON%EC%9D%B4%EC%9A%A9%2C%20%ED%8C%A8%ED%82%B7%EC%A7%81%EB%A0%AC%ED%99%94%ED%81%90))
 - List, JSON이용, 패킷직렬화큐, 스트림 큐
 
 1. JSON 을 이용한 친구 관리 시스템 
