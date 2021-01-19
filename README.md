@@ -133,12 +133,12 @@ FriendAgree  - 친구 요청 수락
 3. 채팅 서버와 게임 서버 구현
 
 <div>
-<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/3.png" width="70%"></img>
+<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/3.png" width="100%"></img>
 </div>
 
 - 상속 및 코딩스타일
 <div>
-<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/3.png" width="70%"></img>
+<img src="https://github.com/heonilp/Game/blob/master/%EB%B3%B4%EC%84%9D%20%ED%8C%8C%EC%9D%B4%ED%84%B0%20%EA%B2%8C%EC%9E%84/4.png" width="70%"></img>
 </div>
 
 - 서버 : C/C++, IOCP, MySQL, List, 직렬화큐 등, 클라이언트 : 유니티 C# (게임코디 제공)
