@@ -110,13 +110,14 @@ FriendAgree  - 친구 요청 수락
 
 ## 서버 모니터링 뷰어차트
 
-- 서버 모니터링 뷰어차트
+- 서버 모니터링 뷰어차트 ([링크](https://github.com/heonilp/Game/tree/master/Win32%20API%20%EC%84%9C%EB%B2%84%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EB%B7%B0%EC%96%B4%EC%B0%A8%ED%8A%B8))
  
 <div>
 <img src="https://github.com/heonilp/Game/blob/master/Win32%20API%20%EC%84%9C%EB%B2%84%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EB%B7%B0%EC%96%B4%EC%B0%A8%ED%8A%B8/%EC%84%9C%EB%B2%84%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EB%B7%B0%EC%96%B4%EC%B0%A8%ED%8A%B8%20%EA%B2%B0%EA%B3%BC%20%ED%99%94%EB%A9%B4.png" width="70%"></img>
 </div>
 
- 1. 윈도우 API 이용
+
+ 1. C++ 윈도우 API 이용
  2. 큐 이용
  3. 서버 모니터링을 하기 위한 그래프 작업
  4. 일정 수준이 넘으면 소리나게 함
